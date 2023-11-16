@@ -4,13 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        Cyan: "#2acfcf",
-        "Dark-Violet": "#3b3054",
-        Red: "#f46262",
-        Gray: "#bfbfbf",
-        "Grayish-Violet": "#9e9aa7",
-        "Very-Dark-Blue": "#35323e",
-        "Very-Dark-Violet": "#232127",
+        "primary-1": "#2acfcf",
+        "primary-2": "#3b3054",
+        "primary-3": "#f46262",
+        "neutral-1": "#ffffff",
+        "neutral-2": "#bfbfbf",
+        "neutral-3": "#9e9aa7",
+        "neutral-4": "#35323e",
+        "neutral-5": "#232127",
+        "neutral-6": "#edecee",
       },
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],

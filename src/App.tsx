@@ -10,6 +10,17 @@ import facebook from "./assets/images/icon-facebook.svg";
 import twitter from "./assets/images/icon-twitter.svg";
 import pinterest from "./assets/images/icon-pinterest.svg";
 import instagram from "./assets/images/icon-instagram.svg";
+import ShortURL from "./components/ShortURL";
+import {
+  IconBrandRecognition,
+  IconDetailedRecords,
+  IconFacebook,
+  IconFullyCustomizable,
+  IconInstagram,
+  IconLogo,
+  IconPinterest,
+  IconTwitter,
+} from "./components/Icons";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,59 +28,93 @@ function App() {
   return (
     <>
       <Header></Header>
-      <main>
-        <section title="hero-section">
+      <main className="text-lg text-neutral-3 font-Poppins font-medium">
+        <section title="hero-section" className="flex flex-col gap-8 p-8">
           <picture>
-            <img src={imgHero} alt="illustration working" />
+            <img
+              className="object-contain w-full"
+              src={imgHero}
+              alt="illustration working"
+            />
           </picture>
-          <div>
-            <h1>More than just shorter links</h1>
+          <div className="flex flex-col gap-4 items-center text-center">
+            <h1 className="text-primary-2 text-4xl font-bold">
+              More than just shorter links
+            </h1>
             <p>
               Build your brand’s recognition and get detailed insights on how
               your links are performing.
             </p>
+            <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2">
+              Get Started
+            </Button>
+          </div>
+        </section>
+        <section
+          title="description-section"
+          className="bg-neutral-6 p-8 flex flex-col gap-4 items-center"
+        >
+          <div className="flex flex-col gap-4">
+            <form
+              action=""
+              className="flex flex-col gap-4 p-4 bg-[url(src/assets/images/bg-shorten-mobile.svg)] bg-neutral-4 rounded-lg"
+            >
+              <input type="text" className="rounded-md w-full" />
+              <Button className="bg-primary-1 rounded-md text-neutral-1 px-6 py-2">
+                Shorten It!
+              </Button>
+            </form>
+            <ul className="flex flex-col gap-4">
+              <ShortURL></ShortURL>
+              <ShortURL></ShortURL>
+              <ShortURL></ShortURL>
+            </ul>
           </div>
 
-          <Button>Get Started</Button>
-          <form action="">
-            <TextField></TextField>
-            <Button>Shorten It!</Button>
-          </form>
-        </section>
-        <section title="description-section">
-          <h2>Advanced Statistics</h2>
-          <p>
-            Track how your links are performing across the web with our advanced
-            statistics dashboard.
-          </p>
-          <div>
-            <article>
-              <picture>
-                <img src={iconBrand} alt="Brand Recognition" />
+          <div className="flex flex-col gap-4 text-center">
+            <h2 className="text-primary-2 text-2xl font-bold">
+              Advanced Statistics
+            </h2>
+            <p>
+              Track how your links are performing across the web with our
+              advanced statistics dashboard.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-8">
+            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
+              <picture className="absolute top-0 left-1/2 text-primary-2">
+                <IconBrandRecognition></IconBrandRecognition>
               </picture>
-              <h3>Brand Recognition</h3>
+              <h3 className="text-primary-2 text-2xl font-bold">
+                Brand Recognition
+              </h3>
               <p>
                 Boost your brand recognition with each click. Generic links
                 don’t mean a thing. Branded links help instil confidence in your
                 content.
               </p>
             </article>
-            <article>
-              <picture>
-                <img src={iconDetail} alt="Detailed Records" />
+            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
+              <picture className="absolute top-0 left-1/2 text-primary-2">
+                <IconDetailedRecords></IconDetailedRecords>
               </picture>
-              <h3>Detailed Records</h3>
+              <h3 className="text-primary-2 text-2xl font-bold">
+                Detailed Records
+              </h3>
               <p>
                 Gain insights into who is clicking your links. Knowing when and
                 where people engage with your content helps inform better
                 decisions.
               </p>
             </article>
-            <article>
-              <picture>
-                <img src={iconCustomizable} alt="Fully Customizable" />
+            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
+              <picture className="absolute top-0 left-1/2 text-primary-2">
+                <IconFullyCustomizable></IconFullyCustomizable>
               </picture>
-              <h3>Fully Customizable</h3>
+              <h3 className="text-primary-2 text-2xl font-bold">
+                Fully Customizable
+              </h3>
               <p>
                 Improve brand awareness and content discoverability through
                 customizable links, supercharging audience engagement.
@@ -77,72 +122,84 @@ function App() {
             </article>
           </div>
         </section>
-        <section title="cta-section">
-          <h3>Boost your links today</h3>
-          <Button>Get Started</Button>
+        <section
+          title="cta-section"
+          className="bg-[url(src/assets/images/bg-boost-mobile.svg)] bg-cover bg-no-repeat bg-center bg-primary-2 p-8 py-12 flex flex-col items-center gap-4 text-center"
+        >
+          <h3 className="text-neutral-1 font-bold">Boost your links today</h3>
+          <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2 w-max">
+            Get Started
+          </Button>
         </section>
       </main>
-      <footer>
-        <picture>
-          <img src={Logo} alt="Logo" />
-        </picture>
-        <ul>
-          <li>
-            <a href="#">Features</a>
-          </li>
-          <li>
-            <a href="#">Link Shortening</a>
-          </li>
-          <li>
-            <a href="#">Branded Links</a>
-          </li>
-          <li>
-            <a href="#">Analytics</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="#">Resources</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-          <li>
-            <a href="#">Developers</a>
-          </li>
-          <li>
-            <a href="#">Support</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="#">Company</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Our Team</a>
-          </li>
-          <li>
-            <a href="#">Careers</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-        <div>
+      <footer className="bg-neutral-5 flex flex-col items-center gap-8 p-8 text-neutral-1 text-center">
+        <a className="text-neutral-1">
+          <IconLogo></IconLogo>
+        </a>
+
+        <div className="flex flex-col items-center gap-4">
+          <p className="font-bold">Features</p>
+          <ul className="flex flex-col items-center gap-2 text-neutral-2">
+            <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#">Link Shortening</a>
+            </li>
+            <li>
+              <a href="#">Branded Links</a>
+            </li>
+            <li>
+              <a href="#">Analytics</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex flex-col items-center gap-4">
+          <p className="font-bold">Resources</p>
+          <ul className="flex flex-col items-center gap-2 text-neutral-2">
+            <li>
+              <a href="#">Blog</a>
+            </li>
+            <li>
+              <a href="#">Developers</a>
+            </li>
+            <li>
+              <a href="#">Support</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex flex-col items-center gap-4">
+          <p className="font-bold">Company</p>
+          <ul className="flex flex-col items-center gap-2 text-neutral-2">
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Our Team</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex flex-row items-center justify-center gap-4">
           <a href="#">
-            <img src={facebook} alt="Logo facebook" />
+            <IconFacebook></IconFacebook>
           </a>
           <a href="#">
-            <img src={twitter} alt="Logo twitter" />
+            <IconTwitter></IconTwitter>
           </a>
           <a href="#">
-            <img src={pinterest} alt="Logo pinterest" />
+            <IconPinterest></IconPinterest>
           </a>
           <a href="#">
-            <img src={instagram} alt="Logo instagram" />
+            <IconInstagram></IconInstagram>
           </a>
         </div>
       </footer>
