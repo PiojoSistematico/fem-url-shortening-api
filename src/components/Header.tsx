@@ -10,12 +10,15 @@ const Menu = () => {
   }
 
   return (
-    <header className="p-8 flex flex-row items-center justify-between text-lg text-neutral-3 font-Poppins font-medium">
-      <a>
+    <header className="p-8 flex flex-row items-center justify-between text-lg text-neutral-3 font-Poppins font-medium md:px-[10%]">
+      <a className="text-primary-2">
         <IconLogo></IconLogo>
       </a>
 
-      <Button className="text-neutral-3 flex flex-row items-center justify-center">
+      <Button
+        onPress={handleClick}
+        className="text-neutral-3 flex flex-row items-center justify-center"
+      >
         {isMenuOpen ? <IconClose></IconClose> : <IconMenu></IconMenu>}
       </Button>
       <nav className="hidden">

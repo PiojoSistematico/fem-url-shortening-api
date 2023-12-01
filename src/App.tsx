@@ -1,15 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import imgHero from "./assets/images/illustration-working.svg";
-import { Button, TextField } from "react-aria-components";
-import iconBrand from "./assets/images/icon-brand-recognition.svg";
-import iconDetail from "./assets/images/icon-detailed-records.svg";
-import iconCustomizable from "./assets/images/icon-fully-customizable.svg";
-import Logo from "./assets/images/logo.svg";
-import facebook from "./assets/images/icon-facebook.svg";
-import twitter from "./assets/images/icon-twitter.svg";
-import pinterest from "./assets/images/icon-pinterest.svg";
-import instagram from "./assets/images/icon-instagram.svg";
+import { Button } from "react-aria-components";
 import ShortURL from "./components/ShortURL";
 import {
   IconBrandRecognition,
@@ -29,15 +21,18 @@ function App() {
     <>
       <Header></Header>
       <main className="text-lg text-neutral-3 font-Poppins font-medium">
-        <section title="hero-section" className="flex flex-col gap-8 p-8">
-          <picture>
+        <section
+          title="hero-section"
+          className="flex flex-col gap-8 p-8 pb-32 md:grid md:grid-cols-2 md:px-[10%] "
+        >
+          <picture className="md:order-2">
             <img
               className="object-contain w-full"
               src={imgHero}
               alt="illustration working"
             />
           </picture>
-          <div className="flex flex-col gap-4 items-center text-center">
+          <div className="flex flex-col gap-4 items-center text-center md:order-1 md:text-left md:items-start md:justify-center">
             <h1 className="text-primary-2 text-4xl font-bold">
               More than just shorter links
             </h1>
@@ -52,9 +47,9 @@ function App() {
         </section>
         <section
           title="description-section"
-          className="bg-neutral-6 p-8 flex flex-col gap-4 items-center"
+          className="bg-neutral-6 p-8 flex flex-col gap-16 items-center md:px-[10%]"
         >
-          <div className="flex flex-col gap-4">
+          <div className="relative flex flex-col gap-4 left-0 -top-24 md:w-full ">
             <form
               action=""
               className="flex flex-col gap-4 p-4 bg-[url(src/assets/images/bg-shorten-mobile.svg)] bg-neutral-4 rounded-lg"
@@ -65,13 +60,13 @@ function App() {
               </Button>
             </form>
             <ul className="flex flex-col gap-4">
+              {/* <ShortURL></ShortURL>
               <ShortURL></ShortURL>
-              <ShortURL></ShortURL>
-              <ShortURL></ShortURL>
+              <ShortURL></ShortURL> */}
             </ul>
           </div>
 
-          <div className="flex flex-col gap-4 text-center">
+          <div className="flex flex-col gap-4 text-center md:w-3/4">
             <h2 className="text-primary-2 text-2xl font-bold">
               Advanced Statistics
             </h2>
@@ -81,9 +76,10 @@ function App() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="relative flex flex-col gap-16 md:flex-row md:gap-8">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-1 w-2 h-3/4 md:h-2 md:w-3/4"></div>
             <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
-              <picture className="absolute top-0 left-1/2 text-primary-2">
+              <picture className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-2 rounded-full p-4">
                 <IconBrandRecognition></IconBrandRecognition>
               </picture>
               <h3 className="text-primary-2 text-2xl font-bold">
@@ -96,7 +92,7 @@ function App() {
               </p>
             </article>
             <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
-              <picture className="absolute top-0 left-1/2 text-primary-2">
+              <picture className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-2 rounded-full p-4">
                 <IconDetailedRecords></IconDetailedRecords>
               </picture>
               <h3 className="text-primary-2 text-2xl font-bold">
@@ -109,7 +105,7 @@ function App() {
               </p>
             </article>
             <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
-              <picture className="absolute top-0 left-1/2 text-primary-2">
+              <picture className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-2 rounded-full p-4">
                 <IconFullyCustomizable></IconFullyCustomizable>
               </picture>
               <h3 className="text-primary-2 text-2xl font-bold">
@@ -124,7 +120,7 @@ function App() {
         </section>
         <section
           title="cta-section"
-          className="bg-[url(src/assets/images/bg-boost-mobile.svg)] bg-cover bg-no-repeat bg-center bg-primary-2 p-8 py-12 flex flex-col items-center gap-4 text-center"
+          className="bg-[url(src/assets/images/bg-boost-mobile.svg)] bg-cover bg-no-repeat bg-center bg-primary-2 p-8 py-12 flex flex-col items-center gap-4 text-center md:bg-[url(src/assets/images/bg-boost-desktop.svg)]"
         >
           <h3 className="text-neutral-1 font-bold">Boost your links today</h3>
           <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2 w-max">
@@ -132,73 +128,132 @@ function App() {
           </Button>
         </section>
       </main>
-      <footer className="bg-neutral-5 flex flex-col items-center gap-8 p-8 text-neutral-1 text-center">
-        <a className="text-neutral-1">
+      <footer className="bg-neutral-5 flex flex-col items-center gap-8 p-8 text-neutral-1 text-center md:grid md:grid-cols-7 md:px-[10%] md:items-start md:justify-center">
+        <a className="text-neutral-1 md:col-start-1 md:col-end-3">
           <IconLogo></IconLogo>
         </a>
 
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 md:items-start md:text-left">
           <p className="font-bold">Features</p>
-          <ul className="flex flex-col items-center gap-2 text-neutral-2">
+          <ul className="flex flex-col items-center gap-2 text-neutral-2 md:items-start">
             <li>
-              <a href="#"></a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Link Shortening
+              </a>
             </li>
             <li>
-              <a href="#">Link Shortening</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Branded Links
+              </a>
             </li>
             <li>
-              <a href="#">Branded Links</a>
-            </li>
-            <li>
-              <a href="#">Analytics</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Analytics
+              </a>
             </li>
           </ul>
         </div>
 
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 md:items-start md:text-left">
           <p className="font-bold">Resources</p>
-          <ul className="flex flex-col items-center gap-2 text-neutral-2">
+          <ul className="flex flex-col items-center gap-2 text-neutral-2 md:items-start">
             <li>
-              <a href="#">Blog</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Blog
+              </a>
             </li>
             <li>
-              <a href="#">Developers</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Developers
+              </a>
             </li>
             <li>
-              <a href="#">Support</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Support
+              </a>
             </li>
           </ul>
         </div>
 
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 md:items-start md:text-left">
           <p className="font-bold">Company</p>
-          <ul className="flex flex-col items-center gap-2 text-neutral-2">
+          <ul className="flex flex-col items-center gap-2 text-neutral-2 md:items-start">
             <li>
-              <a href="#">About</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                About
+              </a>
             </li>
             <li>
-              <a href="#">Our Team</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Our Team
+              </a>
             </li>
             <li>
-              <a href="#">Careers</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Careers
+              </a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a
+                className="hover:text-primary-1 focus-visible::text-primary-1"
+                href="#"
+              >
+                Contact
+              </a>
             </li>
           </ul>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-4">
-          <a href="#">
+        <div className="flex flex-row items-center justify-center gap-4 md:col-start-6 md:col-end-8">
+          <a
+            className="hover:text-primary-1 focus-visible::text-primary-1"
+            href="#"
+          >
             <IconFacebook></IconFacebook>
           </a>
-          <a href="#">
+          <a
+            className="hover:text-primary-1 focus-visible::text-primary-1"
+            href="#"
+          >
             <IconTwitter></IconTwitter>
           </a>
-          <a href="#">
+          <a
+            className="hover:text-primary-1 focus-visible::text-primary-1"
+            href="#"
+          >
             <IconPinterest></IconPinterest>
           </a>
-          <a href="#">
+          <a
+            className="hover:text-primary-1 focus-visible::text-primary-1"
+            href="#"
+          >
             <IconInstagram></IconInstagram>
           </a>
         </div>
