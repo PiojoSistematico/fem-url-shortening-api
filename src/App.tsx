@@ -13,6 +13,7 @@ import {
   IconPinterest,
   IconTwitter,
 } from "./components/Icons";
+import CustomForm from "./components/CustomForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -49,8 +50,8 @@ function App() {
           title="description-section"
           className="bg-neutral-6 p-8 flex flex-col gap-16 items-center md:px-[10%]"
         >
-          <div className="relative flex flex-col gap-4 left-0 -top-24 md:w-full ">
-            <form
+          <div className="relative flex flex-col gap-4 -top-24 md:w-full ">
+            {/* <form
               action=""
               className="flex flex-col gap-4 p-4 bg-[url(src/assets/images/bg-shorten-mobile.svg)] bg-neutral-4 rounded-lg"
             >
@@ -58,7 +59,8 @@ function App() {
               <Button className="bg-primary-1 rounded-md text-neutral-1 px-6 py-2">
                 Shorten It!
               </Button>
-            </form>
+            </form> */}
+            <CustomForm></CustomForm>
             <ul className="flex flex-col gap-4">
               {/* <ShortURL></ShortURL>
               <ShortURL></ShortURL>
@@ -233,25 +235,25 @@ function App() {
 
         <div className="flex flex-row items-center justify-center gap-4 md:col-start-6 md:col-end-8">
           <a
-            className="hover:text-primary-1 focus-visible::text-primary-1"
+            className="hover:text-primary-1 focus-visible:text-primary-1"
             href="#"
           >
             <IconFacebook></IconFacebook>
           </a>
           <a
-            className="hover:text-primary-1 focus-visible::text-primary-1"
+            className="hover:text-primary-1 focus-visible:text-primary-1"
             href="#"
           >
             <IconTwitter></IconTwitter>
           </a>
           <a
-            className="hover:text-primary-1 focus-visible::text-primary-1"
+            className="hover:text-primary-1 focus-visible:text-primary-1"
             href="#"
           >
             <IconPinterest></IconPinterest>
           </a>
           <a
-            className="hover:text-primary-1 focus-visible::text-primary-1"
+            className="hover:text-primary-1 focus-visible:text-primary-1"
             href="#"
           >
             <IconInstagram></IconInstagram>

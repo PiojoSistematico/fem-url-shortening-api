@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IconClose, IconLogo, IconMenu } from "./Icons";
 import { Button } from "react-aria-components";
+import CustomModal from "./CustomModal";
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,17 +11,18 @@ const Menu = () => {
   }
 
   return (
-    <header className="p-8 flex flex-row items-center justify-between text-lg text-neutral-3 font-Poppins font-medium md:px-[10%]">
+    <header className="relative p-8 flex flex-row items-center justify-between text-lg text-neutral-3 font-Poppins font-medium md:px-[10%]">
       <a className="text-primary-2">
         <IconLogo></IconLogo>
       </a>
 
-      <Button
+      {/* <Button
         onPress={handleClick}
         className="text-neutral-3 flex flex-row items-center justify-center"
       >
         {isMenuOpen ? <IconClose></IconClose> : <IconMenu></IconMenu>}
-      </Button>
+      </Button> */}
+      <CustomModal></CustomModal>
       <nav className="hidden">
         <ul aria-label="Primary" role="list">
           <li>
