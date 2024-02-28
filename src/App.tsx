@@ -15,8 +15,17 @@ import {
 } from "./components/Icons";
 import CustomForm from "./components/CustomForm";
 
+type Links = {
+  link: string;
+  shorten: string;
+};
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [links, setLinks] = useState<Links[]>([]);
+
+  function addLink(text: string): void {
+    setLinks((prev) => [...prev, { link: text, shorten: "aers" }]);
+  }
 
   return (
     <>
@@ -41,7 +50,7 @@ function App() {
               Build your brand’s recognition and get detailed insights on how
               your links are performing.
             </p>
-            <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2">
+            <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2 hover:opacity-80 focus-visible:opacity-80">
               Get Started
             </Button>
           </div>
@@ -51,20 +60,11 @@ function App() {
           className="bg-neutral-6 p-8 flex flex-col gap-16 items-center md:px-[10%]"
         >
           <div className="relative flex flex-col gap-4 -top-24 md:w-full ">
-            {/* <form
-              action=""
-              className="flex flex-col gap-4 p-4 bg-[url(src/assets/images/bg-shorten-mobile.svg)] bg-neutral-4 rounded-lg"
-            >
-              <input type="text" className="rounded-md w-full" />
-              <Button className="bg-primary-1 rounded-md text-neutral-1 px-6 py-2">
-                Shorten It!
-              </Button>
-            </form> */}
-            <CustomForm></CustomForm>
+            <CustomForm addLink={addLink}></CustomForm>
             <ul className="flex flex-col gap-4">
-              {/* <ShortURL></ShortURL>
-              <ShortURL></ShortURL>
-              <ShortURL></ShortURL> */}
+              {links && links.length > 0
+                ? links.map((elem) => <ShortURL {...elem}></ShortURL>)
+                : null}
             </ul>
           </div>
 
@@ -125,7 +125,7 @@ function App() {
           className="bg-[url(src/assets/images/bg-boost-mobile.svg)] bg-cover bg-no-repeat bg-center bg-primary-2 p-8 py-12 flex flex-col items-center gap-4 text-center md:bg-[url(src/assets/images/bg-boost-desktop.svg)]"
         >
           <h3 className="text-neutral-1 font-bold">Boost your links today</h3>
-          <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2 w-max">
+          <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2 w-max hover:opacity-80 focus-visible:opacity-80">
             Get Started
           </Button>
         </section>

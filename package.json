@@ -1,6 +1,7 @@
 {
   "name": "fem-url-shortening-api",
   "private": true,
+  "proxy": "http://localhost:5173",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

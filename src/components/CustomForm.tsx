@@ -8,7 +8,16 @@ const FormSchema = z.object({
 
 type TypeSchema = z.infer<typeof FormSchema>;
 
-const CustomForm = () => {
+type Links = {
+  link: string;
+  shorten: string;
+};
+
+type CustomFormProps = {
+  addLink: (text: string) => React.Dispatch<React.SetStateAction<Links[]>>;
+};
+
+const CustomForm: React.FunctionComponent<CustomFormProps> = ({ addLink }) => {
   const {
     register,
     reset,
@@ -22,6 +31,15 @@ const CustomForm = () => {
 
   async function onSubmit(data: TypeSchema) {
     await new Promise((resolve) => setTimeout(resolve, 1000));
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: "https%3A%2F%2Fgoogle.com%2F" }),
+    };
+    fetch("https://cleanuri.com/api/v1/shorten", requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+    addLink(data.text);
     reset();
   }
 
@@ -46,7 +64,7 @@ const CustomForm = () => {
       <button
         disabled={isSubmitting}
         type="submit"
-        className="bg-primary-1 rounded-md text-neutral-1 px-6 py-2"
+        className="bg-primary-1 rounded-md text-neutral-1 px-6 py-2  hover:opacity-80 focus-visible:opacity-80"
       >
         Shorten It!
       </button>

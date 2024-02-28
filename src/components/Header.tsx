@@ -1,27 +1,13 @@
-import { useState } from "react";
-import { IconClose, IconLogo, IconMenu } from "./Icons";
-import { Button } from "react-aria-components";
+import { IconLogo } from "./Icons";
+
 import CustomModal from "./CustomModal";
 
 const Menu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  function handleClick(): void {
-    setIsMenuOpen(!isMenuOpen);
-  }
-
   return (
     <header className="relative p-8 flex flex-row items-center justify-between text-lg text-neutral-3 font-Poppins font-medium md:px-[10%]">
       <a className="text-primary-2">
         <IconLogo></IconLogo>
       </a>
-
-      {/* <Button
-        onPress={handleClick}
-        className="text-neutral-3 flex flex-row items-center justify-center"
-      >
-        {isMenuOpen ? <IconClose></IconClose> : <IconMenu></IconMenu>}
-      </Button> */}
       <CustomModal></CustomModal>
       <nav className="hidden">
         <ul aria-label="Primary" role="list">
