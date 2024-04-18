@@ -31,15 +31,20 @@ const CustomForm: React.FunctionComponent<CustomFormProps> = ({ addLink }) => {
 
   async function onSubmit(data: TypeSchema) {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    const requestOptions = {
+    fetch("https://owo.vc/api/v2/link", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url: "https%3A%2F%2Fgoogle.com%2F" }),
-    };
-    fetch("https://cleanuri.com/api/v1/shorten", requestOptions)
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        link: "https://www.reddit.com",
+        generator: "zws",
+        metadata: "IGNORE",
+      }),
+    })
       .then((response) => response.json())
-      .then((data) => console.log(data));
-    addLink(data.text);
+      .then((info) => addLink({ link: data.text, shorten: info.id }))
+      .catch((error) => console.error("Error:", error));
     reset();
   }
 

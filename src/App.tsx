@@ -14,6 +14,7 @@ import {
   IconTwitter,
 } from "./components/Icons";
 import CustomForm from "./components/CustomForm";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 type Links = {
   link: string;
@@ -21,10 +22,10 @@ type Links = {
 };
 
 function App() {
-  const [links, setLinks] = useState<Links[]>([]);
+  const [links, setLinks] = useLocalStorage("links", []);
 
-  function addLink(text: string): void {
-    setLinks((prev) => [...prev, { link: text, shorten: "aers" }]);
+  function addLink(links: Links): void {
+    setLinks((prev) => [...prev, { link: links.link, shorten: links.shorten }]);
   }
 
   return (
@@ -33,7 +34,7 @@ function App() {
       <main className="text-lg text-neutral-3 font-Poppins font-medium">
         <section
           title="hero-section"
-          className="flex flex-col gap-8 p-8 pb-32 md:grid md:grid-cols-2 md:px-[10%] "
+          className="flex flex-col gap-8 p-8 pb-32 md:grid md:grid-cols-2 md:px-[5%] lg:px-[10%] "
         >
           <picture className="md:order-2">
             <img
@@ -57,9 +58,9 @@ function App() {
         </section>
         <section
           title="description-section"
-          className="bg-neutral-6 p-8 flex flex-col gap-16 items-center md:px-[10%]"
+          className="bg-neutral-6 p-8 flex flex-col gap-16 items-center md:px-[5%] lg:px-[10%]"
         >
-          <div className="relative flex flex-col gap-4 -top-24 md:w-full ">
+          <div className="relative flex flex-col gap-4 -top-24 md:w-3/4 ">
             <CustomForm addLink={addLink}></CustomForm>
             <ul className="flex flex-col gap-4">
               {links && links.length > 0
@@ -68,7 +69,7 @@ function App() {
             </ul>
           </div>
 
-          <div className="flex flex-col gap-4 text-center md:w-3/4">
+          <div className="flex flex-col gap-4 text-center md:w-3/4 lg:w-1/2">
             <h2 className="text-primary-2 text-2xl font-bold">
               Advanced Statistics
             </h2>
@@ -78,9 +79,9 @@ function App() {
             </p>
           </div>
 
-          <div className="relative flex flex-col gap-16 md:flex-row md:gap-8">
+          <div className="relative flex flex-col gap-16 md:flex-row md:gap-8 md:items-start">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-1 w-2 h-3/4 md:h-2 md:w-3/4"></div>
-            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
+            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12 h-80">
               <picture className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-2 rounded-full p-4">
                 <IconBrandRecognition></IconBrandRecognition>
               </picture>
@@ -93,7 +94,7 @@ function App() {
                 content.
               </p>
             </article>
-            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
+            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12 h-80 mt-8">
               <picture className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-2 rounded-full p-4">
                 <IconDetailedRecords></IconDetailedRecords>
               </picture>
@@ -106,7 +107,7 @@ function App() {
                 decisions.
               </p>
             </article>
-            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12">
+            <article className="relative bg-neutral-1 flex flex-col items-center gap-4 text-center rounded-lg p-4 pt-12 h-80 mt-14">
               <picture className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-2 rounded-full p-4">
                 <IconFullyCustomizable></IconFullyCustomizable>
               </picture>
@@ -130,7 +131,7 @@ function App() {
           </Button>
         </section>
       </main>
-      <footer className="bg-neutral-5 flex flex-col items-center gap-8 p-8 text-neutral-1 text-center md:grid md:grid-cols-7 md:px-[10%] md:items-start md:justify-center">
+      <footer className="bg-neutral-5 flex flex-col items-center gap-8 p-8 text-neutral-1 text-center md:grid md:grid-cols-7 md:px-[5%] lg:px-[10%] md:items-start md:justify-center">
         <a className="text-neutral-1 md:col-start-1 md:col-end-3">
           <IconLogo></IconLogo>
         </a>

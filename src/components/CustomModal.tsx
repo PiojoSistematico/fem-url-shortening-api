@@ -4,7 +4,7 @@ import { IconMenu } from "./Icons";
 const CustomModal = () => {
   return (
     <DialogTrigger>
-      <Button>
+      <Button className="md:hidden">
         <IconMenu></IconMenu>
       </Button>
 
