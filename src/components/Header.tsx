@@ -14,7 +14,7 @@ const Menu = () => {
           <li className="hover:text-primary-2 focus-visible:text-primary-2">
             <a href="#">Features</a>
           </li>
-          <li className="hover:text-primary2 fo-cus-visible:text-primary-2">
+          <li className="hover:text-primary-2 focus-visible:text-primary-2">
             <a href="#">Pricing</a>
           </li>
           <li className="hover:text-primary-2 focus-visible:text-primary-2">
