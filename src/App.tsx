@@ -125,7 +125,7 @@ function App() {
         </section>
         <section
           title="cta-section"
-          className="bg-[url(bg-boost-mobile.svg)] bg-cover bg-no-repeat bg-center bg-primary-2 p-8 py-12 flex flex-col items-center gap-4 text-center md:bg-[url(bg-boost-desktop.svg)]"
+          className="bg-[url(/bg-boost-mobile.svg)] bg-cover bg-no-repeat bg-center bg-primary-2 p-8 py-12 flex flex-col items-center gap-4 text-center md:bg-[url(/bg-boost-desktop.svg)]"
         >
           <h3 className="text-neutral-1 font-bold">Boost your links today</h3>
           <Button className="bg-primary-1 rounded-3xl text-neutral-1 px-6 py-2 w-max hover:opacity-80 focus-visible:opacity-80">
