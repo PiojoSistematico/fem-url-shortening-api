@@ -52,7 +52,7 @@ const CustomForm: React.FunctionComponent<CustomFormProps> = ({ addLink }) => {
     <form
       onSubmit={handleSubmit(onSubmit)}
       action=""
-      className="flex flex-col gap-4 p-4 bg-[url(bg-shorten-mobile.svg)] md:bg-[url(bg-shorten-desktop.svg)] bg-neutral-4 rounded-lg w-full"
+      className="flex flex-col gap-4 p-4 bg-[url(/bg-shorten-mobile.svg)] md:bg-[url(/bg-shorten-desktop.svg)] bg-neutral-4 rounded-lg w-full"
     >
       <div className="relative">
         <input
